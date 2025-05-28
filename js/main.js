@@ -331,19 +331,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // G4 Added 052825
 // ---- Update Element Height and Width Data in Hero Section
 // 
-let hElement = document.getElementById("heroSection");
+let heroElement = document.getElementById("heroSection");
 let heightSpan = document.getElementById("heightSpan");
 let widthSpan = document.getElementById("widthSpan");
 
 
 function updateHeroDimensions() {
-  let heroHeight = hElement.clientHeight;
-  let heroWidth = hElement.clientWidth;
+  let heroHeight = heroElement.offsetHeight;
+  let heroWidth = heroElement.clientWidth;
   
   heightSpan.innerHTML = heroHeight.toString();
   widthSpan.innerHTML = heroWidth.toString();
-  console.log("Height: "+heroHeight);
 }
+
+document.addEventListener('scroll', updateHeroDimensions);
+
 document.getElementsByTagName("BODY")[0].onload = function() {updateHeroDimensions()};
 
 document.getElementsByTagName("BODY")[0].onresize = function() {updateHeroDimensions()};
