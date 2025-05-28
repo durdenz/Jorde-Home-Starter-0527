@@ -218,6 +218,16 @@ async function setupScene() {
 		renderer.render(scene, camera);
 	}
 	animate();
+
+  // GD4 Added handleWindowResize and Event Listener 052825 
+  //
+  function handleWindowResize () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    console.log("Window Resize "+window.innerWidth+" x "+window.innerHeight);
+  }
+  window.addEventListener('resize', handleWindowResize, false);
 };
 
 // Spline Path Follow Code Ends Here
@@ -297,13 +307,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.scrollY > scrollThreshold) {
       header.classList.add("sticky");
       header.classList.remove("nosticky"); // Optional
+      console.log("window.scrollY: "+window.scrollY);
     } else {
       header.classList.remove("sticky");
       header.classList.add("nosticky");
     }
   });
 });
-
 
 
 // // Case Study Year Update on Scroll
@@ -355,4 +365,3 @@ document.addEventListener('scroll', updateHeroDimensions);
 document.getElementsByTagName("BODY")[0].onload = function() {updateHeroDimensions()};
 
 document.getElementsByTagName("BODY")[0].onresize = function() {updateHeroDimensions()};
-
