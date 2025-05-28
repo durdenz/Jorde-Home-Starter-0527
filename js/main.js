@@ -336,12 +336,18 @@ let heightSpan = document.getElementById("heightSpan");
 let widthSpan = document.getElementById("widthSpan");
 
 
+
 function updateHeroDimensions() {
-  let heroHeight = heroElement.offsetHeight;
-  let heroWidth = heroElement.clientWidth;
-  
-  heightSpan.innerHTML = heroHeight.toString();
-  widthSpan.innerHTML = heroWidth.toString();
+  let rect = heroElement.getBoundingClientRect();
+  // let heroHeight = heroElement.offsetHeight;
+  // let heroWidth = heroElement.clientWidth;
+  let heroHeight = rect.bottom;
+  let heroWidth = rect.right;
+
+  // console.log("top: "+rect.top+" , bottom: "+rect.bottom+" , left: "+rect.left+" , right "+rect.right);
+
+  heightSpan.innerHTML = heroHeight.toFixed(2).toString();
+  widthSpan.innerHTML = heroWidth.toFixed(2).toString();
 }
 
 document.addEventListener('scroll', updateHeroDimensions);
