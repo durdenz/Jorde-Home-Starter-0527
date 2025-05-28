@@ -301,13 +301,29 @@ btn1canvas.addEventListener("mouseleave", Btn1Exit);
 
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("spline-path-canvas");
+  const s4 = document.getElementById("section4");
   const scrollThreshold = 2800; // px
 
+  // GD4 Commented out the folloeing code and added new code below 052825
+  //     Also added const s4 above to grab bottom of Section4 
+  //
+
+  // window.addEventListener("scroll", () => {
+  //   if (window.scrollY > scrollThreshold) {
+  //     header.classList.add("sticky");
+  //     header.classList.remove("nosticky"); // Optional
+  //     console.log("window.scrollY: "+window.scrollY);
+  //   } else {
+  //     header.classList.remove("sticky");
+  //     header.classList.add("nosticky");
+  //   }
+  // });
+
   window.addEventListener("scroll", () => {
-    if (window.scrollY > scrollThreshold) {
+    let s4rect = s4.getBoundingClientRect();
+    if (s4rect.bottom <= 0) {
       header.classList.add("sticky");
       header.classList.remove("nosticky"); // Optional
-      console.log("window.scrollY: "+window.scrollY);
     } else {
       header.classList.remove("sticky");
       header.classList.add("nosticky");
