@@ -293,6 +293,15 @@ letter-spacing: -5px;
   color: rgb(0, 0, 0);
 }
 
+/* GD4 Added 052925 */
+.mbm-diff {
+  mix-blend-mode: difference;
+}
+
+.mbm-unset {
+  mix-blend-mode: normal;
+}
+
 .marquee {
   width: 90%;
   max-width: 1920px;
@@ -451,7 +460,7 @@ letter-spacing: -5px;
 }
 
 .fill-div2 {
-  background-color: rgb(255, 0, 0);
+  /* background-color: rgb(255, 0, 0); */
   overflow: hidden;
 }
 
