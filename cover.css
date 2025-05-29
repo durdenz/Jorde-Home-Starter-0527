@@ -299,7 +299,15 @@ letter-spacing: -5px;
 }
 
 .mbm-unset {
-  mix-blend-mode: normal;
+  mix-blend-mode: unset;
+}
+
+.isolate {
+  isolation: isolate;
+}
+
+.inherit {
+  isolation: inherit;
 }
 
 .marquee {
